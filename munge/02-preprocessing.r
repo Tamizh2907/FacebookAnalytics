@@ -52,9 +52,11 @@ datasetclusterCfilter$timestamp = as.POSIXct(datasetclusterCfilter$timestamp, or
 
 datasetClusterAtimestamptraffic = datasetclusterAfilter
 
+
 datasetClusterAtimestamptraffic$clusterdatacenter = 
   
   paste(datasetclusterAfilter$intercluster, datasetclusterAfilter$interdatacenter, sep = "")
+
 
 datasetclusterAbothintra = datasetclusterAfilter %>%
   
@@ -72,9 +74,11 @@ datasetclusterAinterdatacenter = datasetclusterAfilter %>%
 
 datasetClusterCtimestamptraffic = datasetclusterCfilter
 
+
 datasetClusterCtimestamptraffic$clusterdatacenter = 
   
   paste(datasetclusterCfilter$intercluster, datasetclusterCfilter$interdatacenter, sep = "")
+
 
 datasetclusterCbothintra = datasetclusterCfilter %>%
   
@@ -92,7 +96,6 @@ datasetclusterCinterdatacenter = datasetclusterCfilter %>%
 
 #Pattern finding in traffic - source and destination pairs
 
-
 datasetclusterAIPpairing = datasetclusterAfilter %>%
   
   count(anonymizedsourceIP, anonymizeddestinationIP, sort = TRUE)
@@ -100,5 +103,77 @@ datasetclusterAIPpairing = datasetclusterAfilter %>%
 datasetclusterCIPpairing = datasetclusterCfilter %>%
   
   count(anonymizedsourceIP, anonymizeddestinationIP, sort = TRUE)
+
+
+#Identifying traffic of different clusters
+  
+datasetclusterAfilterwithClustername = datasetclusterAfilter 
+
+datasetclusterAfilterwithClustername['clustername'] = 'Database'
+
+datasetclusterCfilterwithClustername = datasetclusterCfilter 
+
+datasetclusterCfilterwithClustername['clustername'] = 'Hadoop server'
+
+
+datasetclusterAwithClusternamebothintra = datasetclusterAfilterwithClustername %>%
+  
+  filter(intercluster == "0" & interdatacenter == "0")
+
+datasetclusterAwithClusternameintercluster = datasetclusterAfilterwithClustername %>%
+  
+  filter(intercluster == "1" & interdatacenter == "0")
+
+datasetclusterAwithClusternameinterdatacenter = datasetclusterAfilterwithClustername %>%
+  
+  filter(intercluster == "1" & interdatacenter == "1")
+
+
+datasetclusterCwithClusternamebothintra = datasetclusterCfilterwithClustername %>%
+  
+  filter(intercluster == "0" & interdatacenter == "0")
+
+datasetclusterCwithClusternameintercluster = datasetclusterCfilterwithClustername %>%
+  
+  filter(intercluster == "1" & interdatacenter == "0")
+
+datasetclusterCwithClusternameinterdatacenter = datasetclusterCfilterwithClustername %>%
+  
+  filter(intercluster == "1" & interdatacenter == "1")
+
+
+datasetcombinedwithClustername = rbind(datasetclusterAfilterwithClustername, datasetclusterCfilterwithClustername)
+
+datasetcombinedwithClusternamebothintra = rbind(datasetclusterAwithClusternamebothintra, 
+                                                
+                                                datasetclusterCwithClusternamebothintra)
+
+datasetcombinedwithClusternameintercluster = rbind(datasetclusterAwithClusternameintercluster,
+                                                   
+                                                   datasetclusterCwithClusternameintercluster)
+
+datasetcombinedwithClusternameinterdatacenter = rbind(datasetclusterAwithClusternameinterdatacenter,
+                                                      
+                                                      datasetclusterCwithClusternameinterdatacenter)
+
+
+#Pattern finding in traffic - source and destination pairs
+
+datasetclusterArackpairing = datasetclusterAfilter %>%
+  
+  count(anonymizedsourceRack, anonymizeddestinationRack, sort = TRUE)
+
+datasetclusterCrackpairing = datasetclusterCfilter %>%
+  
+  count(anonymizedsourceRack, anonymizeddestinationRack, sort = TRUE)
+
+datasetclusterApodpairing = datasetclusterAfilter %>%
+  
+  count(anonymizedsourcePod, anonymizeddestinationPod, sort = TRUE)
+
+datasetclusterCpodpairing = datasetclusterCfilter %>%
+  
+  count(anonymizedsourcePod, anonymizeddestinationPod, sort = TRUE)
+  
 
 
