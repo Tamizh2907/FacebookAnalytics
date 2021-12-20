@@ -174,6 +174,20 @@ datasetclusterApodpairing = datasetclusterAfilter %>%
 datasetclusterCpodpairing = datasetclusterCfilter %>%
   
   count(anonymizedsourcePod, anonymizeddestinationPod, sort = TRUE)
-  
 
+datasetclusterAhostprefixpairing = datasetclusterAfilter %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterChostprefixpairing = datasetclusterCfilter %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+  
+datasetclusterAl4portpairing = datasetclusterAfilter %>%
+  
+  count(anonymizedsourceL4Port, anonymizeddestinationL4Port, sort = TRUE)
+
+datasetclusterCl4portpairing = datasetclusterCfilter %>%
+  
+  count(anonymizedsourceL4Port, anonymizeddestinationL4Port, sort = TRUE)
 

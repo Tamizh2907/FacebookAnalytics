@@ -141,7 +141,7 @@ datasetcombinedwithClusternameinterdatacenter %>%
 
 datasetclusterArackpairing %>%
   
-  slice(1:25) %>%
+  slice(1:10) %>%
   
   ggplot(aes(x = anonymizedsourceRack, y = anonymizeddestinationRack, xend = anonymizedsourceRack, yend = anonymizeddestinationRack)) +
   
@@ -156,7 +156,7 @@ datasetclusterArackpairing %>%
 
 datasetclusterCrackpairing %>%
   
-  slice(1:25) %>%
+  slice(1:10) %>%
   
   ggplot(aes(x = anonymizedsourceRack, y = anonymizeddestinationRack, xend = anonymizedsourceRack, yend = anonymizeddestinationRack)) +
   
@@ -172,7 +172,7 @@ datasetclusterCrackpairing %>%
 
 datasetclusterApodpairing %>%
   
-  slice(1:25) %>%
+  slice(1:10) %>%
   
   ggplot(aes(x = anonymizedsourcePod, y = anonymizeddestinationPod, xend = anonymizedsourcePod, yend = anonymizeddestinationPod)) +
   
@@ -200,6 +200,73 @@ datasetclusterCpodpairing %>%
   theme_minimal()
 
 
+datasetclusterAhostprefixpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  ggtitle("Traffic between source and destination hostprefix - Database Cluster") +
+  
+  theme_minimal()
+
+
+datasetclusterChostprefixpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  ggtitle("Traffic between source and destination hostprefix - Hadoop Cluster") +
+  
+  theme_minimal()
+
+
+datasetclusterAl4portpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourceL4Port, y = anonymizeddestinationL4Port, xend = anonymizedsourceL4Port, yend = anonymizeddestinationL4Port)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  ggtitle("Traffic between source and destination L4 port - Database Cluster") +
+  
+  theme_minimal()
+
+
+datasetclusterCl4portpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourceL4Port, y = anonymizeddestinationL4Port, xend = anonymizedsourceL4Port, yend = anonymizeddestinationL4Port)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  ggtitle("Traffic between source and destination L4 port - Hadoop Cluster") +
+  
+  theme_minimal()
+
+
+datasetclusterAfilter %>%
+ 
+   count(IPprotocol, sort = TRUE)
+
+datasetclusterCfilter %>%
+  
+  count(IPprotocol, sort = TRUE)
 
 
 
