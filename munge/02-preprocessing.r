@@ -191,3 +191,161 @@ datasetclusterCl4portpairing = datasetclusterCfilter %>%
   
   count(anonymizedsourceL4Port, anonymizeddestinationL4Port, sort = TRUE)
 
+
+
+datasetclusterAhostprefixpairingbothintraIP6 = datasetclusterAfilter %>%
+  
+  filter(IPprotocol == '6') %>%
+  
+  filter(intercluster == '0' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterAhostprefixpairinginterclusterIP6 = datasetclusterAfilter %>%
+  
+  filter(IPprotocol == '6') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterAhostprefixpairinginterdatacenterIP6 = datasetclusterAfilter %>%
+  
+  filter(IPprotocol == '6') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '1') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+
+
+
+datasetclusterAhostprefixpairingbothintraIP17 = datasetclusterAfilter %>%
+  
+  filter(IPprotocol == '17') %>%
+  
+  filter(intercluster == '0' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterAhostprefixpairinginterclusterIP17 = datasetclusterAfilter %>%
+  
+  filter(IPprotocol == '17') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterAhostprefixpairinginterdatacenterIP17 = datasetclusterAfilter %>%
+  
+  filter(IPprotocol == '17') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '1') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+
+datasetclusterAhostprefixpairingbothintraIP58 = datasetclusterAfilter %>%
+  
+  filter(IPprotocol == '58') %>%
+  
+  filter(intercluster == '0' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterAhostprefixpairinginterclusterIP58 = datasetclusterAfilter %>%
+  
+  filter(IPprotocol == '58') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterAhostprefixpairinginterdatacenterIP58 = datasetclusterAfilter %>%
+  
+  filter(IPprotocol == '58') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '1') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+
+
+datasetclusterChostprefixpairingbothintraIP6 = datasetclusterCfilter %>%
+  
+  filter(IPprotocol == '6') %>%
+  
+  filter(intercluster == '0' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterChostprefixpairinginterclusterIP6 = datasetclusterCfilter %>%
+  
+  filter(IPprotocol == '6') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterChostprefixpairinginterdatacenterIP6 = datasetclusterCfilter %>%
+  
+  filter(IPprotocol == '6') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '1') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+
+
+
+datasetclusterChostprefixpairingbothintraIP17 = datasetclusterCfilter %>%
+  
+  filter(IPprotocol == '17') %>%
+  
+  filter(intercluster == '0' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterChostprefixpairinginterclusterIP17 = datasetclusterCfilter %>%
+  
+  filter(IPprotocol == '17') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterChostprefixpairinginterdatacenterIP17 = datasetclusterCfilter %>%
+  
+  filter(IPprotocol == '17') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '1') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+
+datasetclusterChostprefixpairingbothintraIP58 = datasetclusterCfilter %>%
+  
+  filter(IPprotocol == '58') %>%
+  
+  filter(intercluster == '0' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterChostprefixpairinginterclusterIP58 = datasetclusterCfilter %>%
+  
+  filter(IPprotocol == '58') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '0') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+datasetclusterChostprefixpairinginterdatacenterIP58 = datasetclusterCfilter %>%
+  
+  filter(IPprotocol == '58') %>%
+  
+  filter(intercluster == '1' & interdatacenter == '1') %>%
+  
+  count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
+
+
+
