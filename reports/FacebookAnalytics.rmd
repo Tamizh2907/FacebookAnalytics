@@ -1,0 +1,582 @@
+---
+title: "FacebookAnalytics"
+subtitle: "Exploratory Data Analysis on the dataset of Facebook's Altoona Data Center"
+author: "Thamizhiniyan Pugazhenthi"
+date: "22/12/2021"
+output: pdf_document
+font_size: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir= normalizePath('..'))
+knitr::opts_chunk$set(fig.width=12, fig.height=6.5)
+```
+
+```{r ProjectTemplate, include = FALSE}
+library(ProjectTemplate)
+load.project()
+```
+
+## Introduction
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r, echo = FALSE, fig.cap="Facebook data center - Traffic characteristics - Database cluster - Overall"}
+
+datasetClusterAtimestamptraffic %>%
+  
+  ggplot(aes(timestamp, fill = clusterdatacenter)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Facebook data center - Traffic characteristics - Database cluster - Intra cluster - Intra datacenter"}
+
+datasetclusterAbothintra %>%
+  
+  ggplot(aes(timestamp)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+
+```{r, echo = FALSE, fig.cap="Facebook data center - Traffic characteristics - Database cluster - Inter cluster - Intra datacenter"}
+
+datasetclusterAintercluster %>%
+  
+  ggplot(aes(timestamp)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Facebook data center - Traffic characteristics - Database cluster - Inter cluster - Inter datacenter"}
+
+datasetclusterAinterdatacenter %>%
+  
+  ggplot(aes(timestamp)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Facebook data center - Traffic characteristics - Hadoop cluster - Overall"}
+
+datasetClusterCtimestamptraffic %>%
+  
+  ggplot(aes(timestamp, fill = clusterdatacenter)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Facebook data center - Traffic characteristics - Hadoop cluster - Intra cluster - Intra datacenter"}
+
+datasetclusterCbothintra %>%
+  
+  ggplot(aes(timestamp)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Facebook data center - Traffic characteristics - Hadoop cluster - Inter cluster - Intra datacenter"}
+
+datasetclusterCintercluster %>%
+  
+  ggplot(aes(timestamp)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Facebook data center - Traffic characteristics - Hadoop cluster - Inter cluster - Inter datacenter"}
+
+datasetclusterCinterdatacenter %>%
+  
+  ggplot(aes(timestamp)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+
+
+
+
+```{r, echo = FALSE, fig.cap="Facebook data center - Traffic characteristics - Database and Hadoop server - Overall"}
+
+datasetcombinedwithClustername %>%
+  
+  ggplot(aes(timestamp, fill = `clustername`)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic characteristics - Database and Hadoop server - Intra cluster and Intra datacenter"}
+
+datasetcombinedwithClusternamebothintra %>%
+  
+  ggplot(aes(timestamp, fill = `clustername`)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic characteristics - Database and Hadoop server - Inter cluster and Intra datacenter"}
+
+datasetcombinedwithClusternameintercluster %>%
+  
+  ggplot(aes(timestamp, fill = `clustername`)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic characteristics - Database and Hadoop server - Inter cluster and Inter datacenter"}
+
+datasetcombinedwithClusternameinterdatacenter %>%
+  
+  ggplot(aes(timestamp, fill = `clustername`)) + geom_histogram(binwidth = 1000) +
+  
+  theme_minimal()
+
+```
+
+
+
+```{r, echo = FALSE, fig.cap="Traffic between source and destination IP - Database Cluster"}
+
+datasetclusterAIPpairing %>%
+  
+  slice(1:25) %>%
+
+  ggplot(aes(x = anonymizedsourceIP, y = anonymizeddestinationIP, xend = anonymizedsourceIP, yend = 
+               
+               anonymizeddestinationIP)) +
+  
+  geom_nodes(size = 8) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic between source and destination IP - Hadoop Cluster"}
+
+datasetclusterCIPpairing %>%
+  
+  slice(1:25) %>%
+  
+  ggplot(aes(x = anonymizedsourceIP, y = anonymizeddestinationIP, xend = anonymizedsourceIP, yend = 
+               
+               anonymizeddestinationIP)) +
+  
+  geom_nodes(size = 8) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic between source and destination Rack - Database Cluster"}
+
+datasetclusterArackpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourceRack, y = anonymizeddestinationRack, xend = anonymizedsourceRack, yend = 
+               
+               anonymizeddestinationRack)) +
+  
+  geom_nodes(size = 10) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic between source and destination Rack - Hadoop Cluster"}
+
+datasetclusterCrackpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourceRack, y = anonymizeddestinationRack, xend = anonymizedsourceRack, yend = 
+               
+               anonymizeddestinationRack)) +
+  
+  geom_nodes(size = 12) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic between source and destination Pod - Database Cluster"}
+
+datasetclusterApodpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcePod, y = anonymizeddestinationPod, xend = anonymizedsourcePod, yend = 
+               
+               anonymizeddestinationPod)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic between source and destination Pod - Hadoop Cluster"}
+
+datasetclusterCpodpairing %>%
+  
+  slice(1:25) %>%
+  
+  ggplot(aes(x = anonymizedsourcePod, y = anonymizeddestinationPod, xend = anonymizedsourcePod, yend = 
+               
+               anonymizeddestinationPod)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic between source and destination hostprefix - Database Cluster"}
+
+datasetclusterAhostprefixpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic between source and destination hostprefix - Hadoop Cluster"}
+
+datasetclusterChostprefixpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic between source and destination L4 port - Database Cluster"}
+
+datasetclusterAl4portpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourceL4Port, y = anonymizeddestinationL4Port, xend = anonymizedsourceL4Port, yend = 
+               
+               anonymizeddestinationL4Port)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Traffic between source and destination L4 port - Hadoop Cluster"}
+
+datasetclusterCl4portpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourceL4Port, y = anonymizeddestinationL4Port, xend = anonymizedsourceL4Port, yend = 
+               
+               anonymizeddestinationL4Port)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Database Cluster - Intracluster - Intradatacenter - TCP"}
+
+datasetclusterAhostprefixpairingbothintraIP6 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Database Cluster - Intracluster - Intradatacenter - UDP"}
+
+datasetclusterAhostprefixpairingbothintraIP17 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Database Cluster - Intercluster - Intradatacenter - TCP"}
+
+datasetclusterAhostprefixpairinginterclusterIP6 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Database Cluster - Intercluster - Intradatacenter - UDP"}
+
+datasetclusterAhostprefixpairinginterclusterIP17 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Database Cluster - Intercluster - Interdatacenter - TCP"}
+
+datasetclusterAhostprefixpairinginterdatacenterIP6 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Database Cluster - Intercluster - Interdatacenter - UDP"}
+
+datasetclusterAhostprefixpairinginterdatacenterIP17 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Hadoop Cluster - Intracluster - Intradatacenter - TCP"}
+
+datasetclusterChostprefixpairingbothintraIP6 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Hadoop Cluster - Intracluster - Intradatacenter - UDP"}
+
+datasetclusterChostprefixpairingbothintraIP17 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Hadoop Cluster - Intercluster - Intradatacenter - TCP"}
+
+datasetclusterChostprefixpairinginterclusterIP6 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Hadoop Cluster - Intercluster - Intradatacenter - UDP"}
+
+datasetclusterChostprefixpairinginterclusterIP17 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Hadoop Cluster - Intercluster - Interdatacenter - TCP"}
+
+datasetclusterChostprefixpairinginterdatacenterIP6 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Source and destination hostprefix - Hadoop Cluster - Intercluster - Interdatacenter - UDP"}
+
+datasetclusterChostprefixpairinginterdatacenterIP17 %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, 
+             
+             yend = anonymizeddestinationhostprefix)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") + theme_minimal()
+
+```
+
+
+
+```{r, echo = FALSE, fig.cap="Count with respect to IP protocol - Database cluster"}
+
+datasetclusterAfilter %>%
+ 
+   count(IPprotocol, sort = TRUE)
+
+```
+
+
+```{r, echo = FALSE, fig.cap="Count with respect to IP protocol - Hadoop cluster"}
+
+datasetclusterCfilter %>%
+  
+  count(IPprotocol, sort = TRUE)
+
+```
