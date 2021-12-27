@@ -48,15 +48,15 @@ datasetclusterAfilter$timestamp = as.POSIXct(datasetclusterAfilter$timestamp, or
 
 datasetclusterCfilter$timestamp = as.POSIXct(datasetclusterCfilter$timestamp, origin = "1970-01-01")
 
+
+
 #Classify into intra-cluster, inter-cluster, intra-data-center, inter-data-center
 
 datasetClusterAtimestamptraffic = datasetclusterAfilter
 
-
 datasetClusterAtimestamptraffic$clusterdatacenter = 
   
   paste(datasetclusterAfilter$intercluster, datasetclusterAfilter$interdatacenter, sep = "")
-
 
 datasetclusterAbothintra = datasetclusterAfilter %>%
   
@@ -74,11 +74,9 @@ datasetclusterAinterdatacenter = datasetclusterAfilter %>%
 
 datasetClusterCtimestamptraffic = datasetclusterCfilter
 
-
 datasetClusterCtimestamptraffic$clusterdatacenter = 
   
   paste(datasetclusterCfilter$intercluster, datasetclusterCfilter$interdatacenter, sep = "")
-
 
 datasetclusterCbothintra = datasetclusterCfilter %>%
   
@@ -193,6 +191,8 @@ datasetclusterCl4portpairing = datasetclusterCfilter %>%
 
 
 
+#Classification of host prefix with IP protocol, cluster and datacenter
+
 datasetclusterAhostprefixpairingbothintraIP6 = datasetclusterAfilter %>%
   
   filter(IPprotocol == '6') %>%
@@ -216,8 +216,6 @@ datasetclusterAhostprefixpairinginterdatacenterIP6 = datasetclusterAfilter %>%
   filter(intercluster == '1' & interdatacenter == '1') %>%
   
   count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
-
-
 
 
 datasetclusterAhostprefixpairingbothintraIP17 = datasetclusterAfilter %>%
@@ -294,8 +292,6 @@ datasetclusterChostprefixpairinginterdatacenterIP6 = datasetclusterCfilter %>%
   filter(intercluster == '1' & interdatacenter == '1') %>%
   
   count(anonymizedsourcehostprefix, anonymizeddestinationhostprefix, sort = TRUE)
-
-
 
 
 datasetclusterChostprefixpairingbothintraIP17 = datasetclusterCfilter %>%
