@@ -1,3 +1,15 @@
+commit 17ba8d52d6de17819a4df070d4a1feab0676ade6
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Thu Jan 6 05:42:08 2022 +0000
+
+    Created final report with necessary adjustments
+
+commit 0f4dc9a0a0959c1c18c07af366e244673c1ef65a
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Thu Dec 30 15:10:36 2021 +0000
+
+    Export gitlog file
+
 commit da1b350e6b5110151ae248ceeb53a7e7f89049e3
 Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
 Date:   Mon Dec 27 22:22:26 2021 +0000
