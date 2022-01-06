@@ -30,7 +30,7 @@ There are three clusters in the data center i.e., Cluster A is for Database, Clu
 
 ## EXPLORATORY DATA ANALYSIS
 
-For this analysis, we took 100 samples from each cluster as subset and we will analyse the dataset with respect to each column and derive results from many perspectives especially with intercluster and interdatacenter. First, we need to cleanse the data since some of the fields have corrupted values. After cleansing, we need to fix the values of timestamp column. The column has values of type 'unix timestamp' which need to converted to normal time value - BST value. Over the course of analysis, we will compare different characteristics of the data with respect to each column and analyse the data traffic in depth. Before step into the analysis, we will categorize the data into three types - Intra cluster and Intra datacenter, Inter cluster and Intra datacenter, Inter cluster and Inter datacenter.
+For this analysis, we took 10 samples from each cluster as subset and we will analyse the dataset with respect to each column and derive results from many perspectives especially with intercluster and interdatacenter. First, we need to cleanse the data since some of the fields have corrupted values. After cleansing, we need to fix the values of timestamp column. The column has values of type 'unix timestamp' which need to converted to normal time value - BST value. Over the course of analysis, we will compare different characteristics of the data with respect to each column and analyse the data traffic in depth. Before step into the analysis, we will categorize the data into three types - Intra cluster and Intra datacenter, Inter cluster and Intra datacenter, Inter cluster and Inter datacenter.
 
 
 ### TIMESTAMP
@@ -419,7 +419,7 @@ All these request and reply happen within three IP protocol number - 6, 17 and 5
 
 ```{r, echo = FALSE, fig.cap="Count with respect to IP protocol - Database cluster"}
 
-datasetclusterAfilter %>%
+datasetclusterAfilterwithClustername %>%
  
    count(IPprotocol, sort = TRUE)
 
@@ -428,7 +428,7 @@ datasetclusterAfilter %>%
 
 ```{r, echo = FALSE, fig.cap="Count with respect to IP protocol - Hadoop cluster"}
 
-datasetclusterCfilter %>%
+datasetclusterCfilterwithClustername %>%
   
   count(IPprotocol, sort = TRUE)
 

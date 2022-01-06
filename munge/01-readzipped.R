@@ -12,11 +12,15 @@ data_files_ClusterC = list.files("data/Cluster-C/")  # Identify file names
 
 #Build data frame with zipped files from Cluster A - database
 
+datasetclusterA = data.frame()
+
 for (value in 1:length(data_files_ClusterA)){
   
   datasetvalue = paste("data/Cluster-A/",data_files_ClusterA[value], sep = "")
   
-  datasetclusterA = read.table(datasetvalue, header = FALSE, sep = "\t")
+  datasetclusterAinter = read.table(datasetvalue, header = FALSE, sep = "\t")
+  
+  datasetclusterA = rbind(datasetclusterA, datasetclusterAinter)
   
 }
 
@@ -39,11 +43,15 @@ colnames(datasetclusterA) = c("timestamp", "packetlength", "anonymizedsourceIP",
 
 #Build data frame with zipped files from Cluster C - Hadoop Server
 
+datasetclusterC = data.frame()
+
 for (value in 1:length(data_files_ClusterC)){
   
   datasetvalue = paste("data/Cluster-C/",data_files_ClusterC[value], sep = "")
   
-  datasetclusterC = read.table(datasetvalue, header = FALSE, sep = "\t")
+  datasetclusterCinter = read.table(datasetvalue, header = FALSE, sep = "\t")
+  
+  datasetclusterC = rbind(datasetclusterC, datasetclusterCinter)
   
 }
 
