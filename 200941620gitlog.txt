@@ -1,0 +1,71 @@
+commit 1e35a4f49d35d8c2c880e4331febbf37a82a42eb
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Tue Jan 11 01:08:48 2022 +0000
+
+    Structured Abstract were edited
+
+commit 2d3d9c01122f1e211b84027baedc8210061c0e8a
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Thu Jan 6 05:44:16 2022 +0000
+
+    Gitlog file exported again
+
+commit 17ba8d52d6de17819a4df070d4a1feab0676ade6
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Thu Jan 6 05:42:08 2022 +0000
+
+    Created final report with necessary adjustments
+
+commit 0f4dc9a0a0959c1c18c07af366e244673c1ef65a
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Thu Dec 30 15:10:36 2021 +0000
+
+    Export gitlog file
+
+commit da1b350e6b5110151ae248ceeb53a7e7f89049e3
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Mon Dec 27 22:22:26 2021 +0000
+
+    Set final draft of Report - Markdown
+
+commit cc0e2c958a627e48593c69f92b7e3f4de3a57eac
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Fri Dec 24 00:45:23 2021 +0000
+
+    Initialized R markdown
+
+commit 8e7bd75f3a83861080a49e88afd88457675d39bf
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Tue Dec 21 17:50:11 2021 +0000
+
+    Data Analysis - Day four
+
+commit 3d750b68392cf2d4b43fcdb6b31a6a9a3d16c6b4
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Mon Dec 20 19:20:31 2021 +0000
+
+    Data Analysis - Day three
+
+commit 2e0f4ab36159a898db4d83933598bd361ecc2868
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Sun Dec 19 00:52:02 2021 +0000
+
+    Data Analysis - Day two
+
+commit 86f431a4f30ba80f2dc8a8c53a5b1f0e1c2e8cbb
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Fri Dec 17 03:49:49 2021 +0000
+
+    Data Analysis - Day one
+
+commit 38159f50a640bef53a33af8235121203a8e5933a
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Thu Dec 16 13:44:07 2021 +0000
+
+    Preprocessing and Data Cleansing - Stage 1
+
+commit 50272bde51d20264580bd21a659b127d6638e976
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Thu Dec 16 13:41:41 2021 +0000
+
+    Initial commit
