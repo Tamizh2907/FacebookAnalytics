@@ -1,3 +1,15 @@
+commit 1e35a4f49d35d8c2c880e4331febbf37a82a42eb
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Tue Jan 11 01:08:48 2022 +0000
+
+    Structured Abstract was edited
+
+commit 2d3d9c01122f1e211b84027baedc8210061c0e8a
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Thu Jan 6 05:44:16 2022 +0000
+
+    Gitlog file exported again
+
 commit 17ba8d52d6de17819a4df070d4a1feab0676ade6
 Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
 Date:   Thu Jan 6 05:42:08 2022 +0000
