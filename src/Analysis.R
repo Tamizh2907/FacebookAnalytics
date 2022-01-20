@@ -187,7 +187,7 @@ datasetclusterApodpairing %>%
 
 datasetclusterCpodpairing %>%
   
-  slice(1:25) %>%
+  slice(1:10) %>%
   
   ggplot(aes(x = anonymizedsourcePod, y = anonymizeddestinationPod, xend = anonymizedsourcePod, yend = anonymizeddestinationPod)) +
   
@@ -196,6 +196,36 @@ datasetclusterCpodpairing %>%
   geom_nodetext(aes(label = n), color = "white") +
   
   ggtitle("Traffic between source and destination Pod - Hadoop Cluster") +
+  
+  theme_minimal()
+
+
+datasetclusterArackpodpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcePod, y = anonymizedsourceRack, xend = anonymizedsourcePod, yend = anonymizedsourceRack)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  ggtitle("Traffic between source Pod and Rack - Database Cluster") +
+  
+  theme_minimal()
+
+
+datasetclusterCrackpodpairing %>%
+  
+  slice(1:10) %>%
+  
+  ggplot(aes(x = anonymizedsourcePod, y = anonymizedsourceRack, xend = anonymizedsourcePod, yend = anonymizedsourceRack)) +
+  
+  geom_nodes(size = 16) +
+  
+  geom_nodetext(aes(label = n), color = "white") +
+  
+  ggtitle("Traffic between source Pod and Rack - Hadoop Cluster") +
   
   theme_minimal()
 
@@ -269,192 +299,16 @@ datasetclusterCfilter %>%
   count(IPprotocol, sort = TRUE)
 
 
-datasetclusterAhostprefixpairingbothintraIP6 %>%
+ggplot(dataframerowcountA, aes(rowcountA)) + geom_bar(stat = "count") +
   
-  slice(1:10) %>%
+  geom_text(aes(label = ..count..), stat = "count", vjust = -0.5, colour = "black") + 
   
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Database Cluster - Intracluster - Intradatacenter - TCP") +
-  
-  theme_minimal()
+  ggtitle("Level of co-location of applications on servers - Cluster A") + theme_minimal()
 
 
-datasetclusterAhostprefixpairingbothintraIP17 %>%
+ggplot(dataframerowcountC, aes(rowcountC)) + geom_bar(stat = "count") +
   
-  slice(1:10) %>%
+  geom_text(aes(label = ..count..), stat = "count", vjust = -0.5, colour = "black") + 
   
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Database Cluster - Intracluster - Intradatacenter - UDP") +
-  
-  theme_minimal()
-
-
-datasetclusterAhostprefixpairinginterclusterIP6 %>%
-  
-  slice(1:10) %>%
-  
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Database Cluster - Intercluster - Intradatacenter - TCP") +
-  
-  theme_minimal()
-
-
-datasetclusterAhostprefixpairinginterclusterIP17 %>%
-  
-  slice(1:10) %>%
-  
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Database Cluster - Intercluster - Intradatacenter - UDP") +
-  
-  theme_minimal()
-
-
-
-datasetclusterAhostprefixpairinginterdatacenterIP6 %>%
-  
-  slice(1:10) %>%
-  
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Database Cluster - Intercluster - Interdatacenter - TCP") +
-  
-  theme_minimal()
-
-
-datasetclusterAhostprefixpairinginterdatacenterIP17 %>%
-  
-  slice(1:10) %>%
-  
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Database Cluster - Intercluster - Interdatacenter - UDP") +
-  
-  theme_minimal()
-
-
-
-
-datasetclusterChostprefixpairingbothintraIP6 %>%
-  
-  slice(1:10) %>%
-  
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Hadoop Cluster - Intracluster - Intradatacenter - TCP") +
-  
-  theme_minimal()
-
-
-datasetclusterChostprefixpairingbothintraIP17 %>%
-  
-  slice(1:10) %>%
-  
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Hadoop Cluster - Intracluster - Intradatacenter - UDP") +
-  
-  theme_minimal()
-
-
-datasetclusterChostprefixpairinginterclusterIP6 %>%
-  
-  slice(1:10) %>%
-  
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Hadoop Cluster - Intercluster - Intradatacenter - TCP") +
-  
-  theme_minimal()
-
-
-datasetclusterChostprefixpairinginterclusterIP17 %>%
-  
-  slice(1:10) %>%
-  
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Hadoop Cluster - Intercluster - Intradatacenter - UDP") +
-  
-  theme_minimal()
-
-
-
-datasetclusterChostprefixpairinginterdatacenterIP6 %>%
-  
-  slice(1:10) %>%
-  
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Hadoop Cluster - Intercluster - Interdatacenter - TCP") +
-  
-  theme_minimal()
-
-
-datasetclusterChostprefixpairinginterdatacenterIP17 %>%
-  
-  slice(1:10) %>%
-  
-  ggplot(aes(x = anonymizedsourcehostprefix, y = anonymizeddestinationhostprefix, xend = anonymizedsourcehostprefix, yend = anonymizeddestinationhostprefix)) +
-  
-  geom_nodes(size = 16) +
-  
-  geom_nodetext(aes(label = n), color = "white") +
-  
-  ggtitle("Source and destination hostprefix - Hadoop Cluster - Intercluster - Interdatacenter - UDP") +
-  
-  theme_minimal()
-
-
-
-
- 
-
+  ggtitle("Level of co-location of applications on servers - Cluster C") + theme_minimal()
 

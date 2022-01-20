@@ -72,4 +72,8 @@ colnames(datasetclusterC) = c("timestamp", "packetlength", "anonymizedsourceIP",
                               
                               "intercluster", "interdatacenter")
 
+rm(datasetclusterAinter)
+
+rm(datasetclusterCinter)
+
 
