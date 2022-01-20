@@ -1,8 +1,26 @@
+commit ed2137c289c4fe5ba93eeaf644c35276656f7626
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Thu Jan 20 20:35:54 2022 +0000
+
+    Code refactoring and enhancement
+
+commit 4eee5fdc2ba9d2a418e4b206d2e7589e57a4bb6c
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Tue Jan 11 01:13:10 2022 +0000
+
+    Git log was edited
+
+commit 6e36bce2fdf4b182249df7f5585486aefd504011
+Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
+Date:   Tue Jan 11 01:10:04 2022 +0000
+
+    Git log were edited
+
 commit 1e35a4f49d35d8c2c880e4331febbf37a82a42eb
 Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
 Date:   Tue Jan 11 01:08:48 2022 +0000
 
-    Structured Abstract was edited
+    Structured Abstract were edited
 
 commit 2d3d9c01122f1e211b84027baedc8210061c0e8a
 Author: Thamizhiniyan P <thamizhiniyan2907@gmail.com>
